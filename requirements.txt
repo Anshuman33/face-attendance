@@ -1,0 +1,7 @@
+mtcnn
+tensorflow==2.7.0
+opencv-python
+keras
+scikit-learn
+numpy
+pillow
