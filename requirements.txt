@@ -5,3 +5,4 @@ keras
 scikit-learn
 numpy
 pillow
+imutils
