@@ -1,11 +1,10 @@
-from sklearn import neighbors
 from utils import convertToThreeChanneled, getEmbeddingsFromFile
 import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image, ImageOps
 from sklearn.neighbors import KNeighborsClassifier
 
-test_embeddings, test_labels = getEmbeddingsFromFile('embeddings/team_embeddings_v5.json')
+test_embeddings, test_labels = getEmbeddingsFromFile('embeddings/team_embeddings_v4.json')
 knn = KNeighborsClassifier(weights="distance")
 knn.fit(test_embeddings, test_labels)
 class_index_lookup = {v:k for k,v in enumerate(knn.classes_)}

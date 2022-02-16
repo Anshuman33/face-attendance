@@ -1,9 +1,8 @@
 import cv2
 from mtcnn import MTCNN
-from imutils.video import WebcamVideoStream
 import recognizer
 
-detector = MTCNN()
+# detector = MTCNN()  # Uncomment to use MTCNN face detector
 face_cascade = cv2.CascadeClassifier("L:/Anaconda3/envs/facedet/Lib/site-packages/cv2/data/haarcascade_frontalface_default.xml")
 
 def detectFaceUsingCascadeClassifier(image):
@@ -13,7 +12,7 @@ def detectFaceUsingCascadeClassifier(image):
     
 def detectFaceUsingMTCNN(image):
     face_boxes = []
-    detections = detector.detect_faces(img)
+    detections = detector.detect_faces(image)
     for detection in detections:
         if(detection['confidence'] >= 0.9):
             face_boxes.append(detection["box"])
@@ -22,10 +21,10 @@ def detectFaceUsingMTCNN(image):
     
 
 
-# SOURCE = "D:/CodingAndProjects/AI Project/test_videos/anshuman.mp4"
-SOURCE = "D:/CodingAndProjects/AI Project/test_videos/monalisa.mp4"
+SOURCE = "D:/CodingAndProjects/AI Project/test_videos/anshuman.mp4"
+# SOURCE = "D:/CodingAndProjects/AI Project/test_videos/monalisa.mp4"
 # SOURCE = "D:/CodingAndProjects/AI Project/test_videos/kirti.mp4"
-# SOURCE = "D:/CodingAndProjects/AI Project/test_videos/sattwik2.mp4"
+# SOURCE = "D:/CodingAndProjects/AI Project/test_videos/sattwik4.mp4"
 
 # Starts capturing video frames from camera or video input
 cap = cv2.VideoCapture(SOURCE)
